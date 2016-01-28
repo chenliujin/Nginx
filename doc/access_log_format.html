@@ -1,13 +1,19 @@
 <h2>格式定义</h2>
-<pre>
-log_format main '$remote_addr|$http_x_forwarded_for|$upstream_addr|$connection|$upstream_status|$time_local|$request|$status|$body_bytes_sent|$bytes_sent|$http_referer|$http_user_agent|$upstream_response_time|$msec|$request_time|$log_cookie_id|$log_zenid|$log_email';	
-</pre>
+<p>使用 | 分隔日志内容，方便以后对日志进行分析和统计。</p>
+[bash]
+$ vim /etc/nginx/nginx.conf
+http {
+    log_format main '$remote_addr|$http_x_forwarded_for|$upstream_addr|$connection|$upstream_status|$time_local|$request|$status|$body_bytes_sent|$bytes_sent|$http_referer|$http_user_agent|$upstream_response_time|$msec|$request_time';	
+    access_log  /var/log/nginx/access.log  main;
+    ...
+}
+[/bash]
 
 <h2>格式说明</h2>
 <ul>
 	<li>
-		<p><strong>$remote_addr</strong></p>
-		<p>客户端 IP</p>
+            <p><strong>$remote_addr</strong></p>
+            <p>客户端 IP</p>
 	</li>
 	<li>
 		<p><strong>$http_x_forwarded_for</strong></p>
@@ -71,8 +77,8 @@ log_format main '$remote_addr|$http_x_forwarded_for|$upstream_addr|$connection|$
 	</li>	
 	<li>
 		<p><strong>$log_zenid</strong></p>
-		<p></p>
-	</li>			
+	</li>		
+        <li>$remote_user</li>
 </ul>
 
 <h2>参考文献</h2>
