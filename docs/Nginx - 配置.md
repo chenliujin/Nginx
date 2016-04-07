@@ -1,6 +1,8 @@
-<ul>
-    <li>
-        <p><strong>worker_processes</strong></p>
-        <p>Éè³É cpu ºËĞÄÊıµÄÁ½±¶</p>
-    </li>
-</ul>
+## worker_processes
+è®¾æˆ cpu æ ¸å¿ƒæ•°çš„ä¸¤å€
+
+```
+gzip on;
+gzip_comp_level 4;
+gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+```
