@@ -1,8 +1,10 @@
 * 多条件判定：根据 $http_user_agent 禁止用户访问指定页 $request。<br />
-场景：黑客通过大量肉机尝试破解 wordpress 密码，禁止这些访问。
+场景：黑客通过大量肉机尝试破解 wordpress 密码，禁止这些访问。<br />
+Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0<br />
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0
 ```
 set $block 'TRUE';
-if ($http_user_agent !~* "Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0") {
+if ($http_user_agent !~* "Mozilla/5.0 \(Windows NT 6.0; rv:34.0\) Gecko/20100101 Firefox/34.0") {
 		set $block 'FALSE';
 }
 if ($request !~* "wp-login.php") {
