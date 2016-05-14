@@ -1,87 +1,87 @@
-<h2>¸ñÊ½¶¨Òå</h2>
-<p>Ê¹ÓÃ | ·Ö¸ôÈÕÖ¾ÄÚÈİ£¬·½±ãÒÔºó¶ÔÈÕÖ¾½øĞĞ·ÖÎöºÍÍ³¼Æ¡£</p>
-[bash]
+<h2>æ ¼å¼å®šä¹‰</h2>
+<p>ä½¿ç”¨ | åˆ†éš”æ—¥å¿—å†…å®¹ï¼Œæ–¹ä¾¿ä»¥åå¯¹æ—¥å¿—è¿›è¡Œåˆ†æå’Œç»Ÿè®¡ã€‚</p>
+```
 $ vim /etc/nginx/nginx.conf
 http {
-    log_format main '$remote_addr|$http_x_forwarded_for|$upstream_addr|$connection|$upstream_status|$time_local|$request|$status|$body_bytes_sent|$bytes_sent|$http_referer|$http_user_agent|$upstream_response_time|$msec|$request_time';	
+    log_format main '$remote_addr|$http_x_forwarded_for|$upstream_addr|$connection|$upstream_status|$time_local|$request|$status|$body_bytes_sent|$bytes_sent|$http_referer|$http_user_agent|$upstream_response_time|$msec|$request_time';
     access_log  /var/log/nginx/access.log  main;
     ...
 }
-[/bash]
+```
 
-<h2>¸ñÊ½ËµÃ÷</h2>
+<h2>æ ¼å¼è¯´æ˜</h2>
 <ul>
 	<li>
             <p><strong>$remote_addr</strong></p>
-            <p>¿Í»§¶Ë IP</p>
+            <p>å®¢æˆ·ç«¯ IP</p>
 	</li>
 	<li>
 		<p><strong>$http_x_forwarded_for</strong></p>
-		<p>´úÀí IP</p>
-	</li>	
+		<p>ä»£ç† IP</p>
+	</li>
 	<li>
 		<p><strong>$upstream_addr</strong></p>
-		<p>upstream µØÖ·</p>
+		<p>upstream åœ°å€</p>
 	</li>		
 	<li>
 		<p><strong>$connection</strong></p>
-		<p>Á¬½ÓµÄĞòÁĞºÅ</p>
-	</li>	
+		<p>è¿æ¥çš„åºåˆ—å·</p>
+	</li>
 	<li>
 		<p><strong>$upstream_status</strong></p>
-		<p>upstream ×´Ì¬</p>
-	</li>	
+		<p>upstream çŠ¶æ€</p>
+	</li>
 	<li>
 		<p><strong>$time_local</strong></p>
-		<p>·ÃÎÊÊ±¼äºÍÊ±Çø</p>
-	</li>	
+		<p>è®¿é—®æ—¶é—´å’Œæ—¶åŒº</p>
+	</li>
 	<li>
 		<p><strong>$request</strong></p>
-		<p>ÇëÇóÒ³ÃæµØÖ·</p>
-	</li>	
+		<p>è¯·æ±‚é¡µé¢åœ°å€</p>
+	</li>
 	<li>
 		<p><strong>$status</strong></p>
 		<p>http status(200/304/404)</p>
-	</li>	
+	</li>
 	<li>
 		<p><strong>$body_bytes_sent</strong></p>
-		<p>·¢ËÍ¸ø¿Í»§¶ËµÄ×Ö½ÚÊı£¬²»°üÀ¨ÏìÓ¦Í·µÄ´óĞ¡</p>
-	</li>	
+		<p>å‘é€ç»™å®¢æˆ·ç«¯çš„å­—èŠ‚æ•°ï¼Œä¸åŒ…æ‹¬å“åº”å¤´çš„å¤§å°</p>
+	</li>
 	<li>
 		<p><strong>$bytes_sent</strong></p>
-		<p>·¢ËÍ¸ø¿Í»§¶ËµÄ×Ü×Ö½ÚÊı</p>
-	</li>	
+		<p>å‘é€ç»™å®¢æˆ·ç«¯çš„æ€»å­—èŠ‚æ•°</p>
+	</li>
 	<li>
 		<p><strong>$http_referer</strong></p>
 		<p>referer</p>
-	</li>	
+	</li>
 	<li>
 		<p><strong>$http_user_agent</strong></p>
 		<p>agent</p>
-	</li>	
+	</li>
 	<li>
 		<p><strong>$upstream_response_time</strong></p>
-		<p>upstream ÏìÓ¦Ê±¼ä</p>
-	</li>	
+		<p>upstream å“åº”æ—¶é—´</p>
+	</li>
 	<li>
 		<p><strong>$msec</strong></p>
-		<p>ÈÕÖ¾Ğ´ÈëÊ±¼ä</p>
-	</li>	
+		<p>æ—¥å¿—å†™å…¥æ—¶é—´</p>
+	</li>
 	<li>
 		<p><strong>$request_time</strong></p>
-		<p>ÇëÇó´¦ÀíÊ±¼ä£¬µ¥Î»ÎªÃë£¬¾«¶ÈºÁÃë£» ´Ó¶ÁÈë¿Í»§¶ËµÄµÚÒ»¸ö×Ö½Ú¿ªÊ¼£¬Ö±µ½°Ñ×îºóÒ»¸ö×Ö·û·¢ËÍ¸ø¿Í»§¶Ëºó½øĞĞÈÕÖ¾Ğ´ÈëÎªÖ¹¡£</p>
-	</li>	
+		<p>è¯·æ±‚å¤„ç†æ—¶é—´ï¼Œå•ä½ä¸ºç§’ï¼Œç²¾åº¦æ¯«ç§’ï¼› ä»è¯»å…¥å®¢æˆ·ç«¯çš„ç¬¬ä¸€ä¸ªå­—èŠ‚å¼€å§‹ï¼Œç›´åˆ°æŠŠæœ€åä¸€ä¸ªå­—ç¬¦å‘é€ç»™å®¢æˆ·ç«¯åè¿›è¡Œæ—¥å¿—å†™å…¥ä¸ºæ­¢ã€‚</p>
+	</li>
 	<li>
 		<p><strong>$log_cookie_id</strong></p>
 		<p></p>
-	</li>	
+	</li>
 	<li>
 		<p><strong>$log_zenid</strong></p>
 	</li>		
         <li>$remote_user</li>
 </ul>
 
-<h2>²Î¿¼ÎÄÏ×</h2>
+<h2>å‚è€ƒæ–‡çŒ®</h2>
 <ul>
 	<li>http://nginx.org/cn/docs/http/ngx_http_log_module.html</li>
 </ul>
