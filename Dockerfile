@@ -4,6 +4,7 @@ MAINTAINER liujin.chen <liujin.chen@qq.com>
 
 RUN yum update -y
 
+# version: 1.12.1
 RUN echo '[nginx]' > /etc/yum.repos.d/nginx.repo && \
     echo 'name=nginx repo' >> /etc/yum.repos.d/nginx.repo && \
     echo 'baseurl=http://nginx.org/packages/centos/$releasever/$basearch/' >> /etc/yum.repos.d/nginx.repo && \
@@ -11,18 +12,19 @@ RUN echo '[nginx]' > /etc/yum.repos.d/nginx.repo && \
     echo 'enabled=1' >> /etc/yum.repos.d/nginx.repo 
 
 RUN yum install -y nginx && \
-    yum clean all;
+    yum clean all && \
+    rm -f /etc/yum.repos.d/nginx.repo
 
-RUN mkdir /usr/share/nginx/html/healthz && \
-    mv /usr/share/nginx/html/*.html /usr/share/nginx/html/healthz/
+RUN rm -f /usr/share/nginx/html/* && \
+    mkdir /usr/share/nginx/html/healthz && \
+    echo '<?php echo "hello world!";' > /usr/share/nginx/html/healthz/index.php
 
 RUN echo "alias ll='ls -alF'" >> ~/.bashrc
 
 RUN systemctl enable nginx;
-#
-#COPY ./etc/nginx/nginx.conf		/etc/nginx/
-#COPY ./etc/nginx/conf.d/default.conf 	/etc/nginx/conf.d/
-#
+
+COPY ./conf/conf.d /etc/nginx/conf.d
+
 VOLUME ["/var/log/nginx"]
 
 EXPOSE 80 443
