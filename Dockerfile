@@ -4,6 +4,9 @@ MAINTAINER liujin.chen <liujin.chen@qq.com>
 
 RUN yum update -y
 
+# 修改时区
+RUN timedatectl set-timezone Asia/Shanghai
+
 # version: 1.12.1
 RUN echo '[nginx]' > /etc/yum.repos.d/nginx.repo && \
     echo 'name=nginx repo' >> /etc/yum.repos.d/nginx.repo && \
