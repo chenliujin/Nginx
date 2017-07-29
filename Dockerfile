@@ -4,8 +4,8 @@ MAINTAINER liujin.chen <liujin.chen@qq.com>
 
 RUN yum update -y
 
-# 修改时区
-RUN timedatectl set-timezone Asia/Shanghai
+# 1.修改时区
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 
 # version: 1.12.1
 RUN echo '[nginx]' > /etc/yum.repos.d/nginx.repo && \
@@ -24,7 +24,7 @@ RUN rm -f /usr/share/nginx/html/* && \
 
 RUN echo "alias ll='ls -alF'" >> ~/.bashrc
 
-RUN systemctl enable nginx;
+RUN systemctl enable nginx
 
 COPY ./conf/conf.d /etc/nginx/conf.d
 
