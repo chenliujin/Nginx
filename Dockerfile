@@ -30,6 +30,6 @@ COPY ./conf/conf.d /etc/nginx/conf.d
 
 VOLUME ["/var/log/nginx"]
 
-EXPOSE 80 443
+EXPOSE 80 443 10245
 
 CMD ["/usr/sbin/init"]
