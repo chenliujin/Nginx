@@ -2,8 +2,6 @@ FROM centos:latest
 
 MAINTAINER liujin.chen <liujin.chen@qq.com>
 
-RUN yum update -y
-
 # 1.修改时区
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 
