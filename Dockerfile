@@ -21,13 +21,11 @@ RUN yum install -y nginx && \
 RUN rm -f /etc/nginx/conf.d/default.conf
 RUN rm -f /usr/share/nginx/html/* && \
     mkdir /usr/share/nginx/html/healthz && \
-    echo '<?php echo "hello world!";' > /usr/share/nginx/html/healthz/index.php
+    echo '<?php echo "ok";' > /usr/share/nginx/html/healthz/index.php
 
 RUN echo "alias ll='ls -alF'" >> ~/.bashrc
 
 RUN systemctl enable nginx
-
-#COPY ./conf/conf.d /etc/nginx/conf.d
 
 VOLUME ["/var/log/nginx"]
 
