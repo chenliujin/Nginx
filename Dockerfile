@@ -5,17 +5,19 @@ MAINTAINER liujin.chen <liujin.chen@qq.com>
 # 1.修改时区
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 
-# version: 1.12.1
+# 2. repo
 RUN echo '[nginx]' > /etc/yum.repos.d/nginx.repo && \
     echo 'name=nginx repo' >> /etc/yum.repos.d/nginx.repo && \
     echo 'baseurl=http://nginx.org/packages/centos/$releasever/$basearch/' >> /etc/yum.repos.d/nginx.repo && \
     echo 'gpgcheck=0' >> /etc/yum.repos.d/nginx.repo && \
     echo 'enabled=1' >> /etc/yum.repos.d/nginx.repo 
 
+# 3. version: 1.12.1
 RUN yum install -y nginx && \
     yum clean all && \
     rm -f /etc/yum.repos.d/nginx.repo
 
+# 4. healthz
 RUN rm -f /usr/share/nginx/html/* && \
     mkdir /usr/share/nginx/html/healthz && \
     echo '<?php echo "hello world!";' > /usr/share/nginx/html/healthz/index.php
