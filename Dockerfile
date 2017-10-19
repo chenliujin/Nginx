@@ -12,7 +12,7 @@ RUN echo '[nginx]' > /etc/yum.repos.d/nginx.repo && \
     echo 'gpgcheck=0' >> /etc/yum.repos.d/nginx.repo && \
     echo 'enabled=1' >> /etc/yum.repos.d/nginx.repo 
 
-# 3. version: 1.12.1
+# 3. version: 1.12.2
 RUN yum install -y nginx && \
     yum clean all && \
     rm -f /etc/yum.repos.d/nginx.repo
