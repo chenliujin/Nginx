@@ -18,9 +18,9 @@ RUN yum install -y nginx && \
     rm -f /etc/yum.repos.d/nginx.repo
 
 # 4. healthz
-RUN rm -f /etc/nginx/conf.d/default.conf
-RUN rm -f /usr/share/nginx/html/* && \
-    mkdir /usr/share/nginx/html/healthz && \
+#RUN rm -f /etc/nginx/conf.d/default.conf
+#RUN rm -f /usr/share/nginx/html/* && \
+RUN mkdir /usr/share/nginx/html/healthz && \
     echo '<?php echo "ok";' > /usr/share/nginx/html/healthz/index.php
 
 RUN echo "alias ll='ls -alF'" >> ~/.bashrc
