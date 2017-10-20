@@ -10,3 +10,9 @@
 * application/x-javascript
 * application/octet-stream: 代表任意的二进制数据传输
 * image/svg+xml
+
+```
+gzip on;
+gzip_comp_level 4;
+gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+```
