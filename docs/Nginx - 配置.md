@@ -1,8 +1,3 @@
 ## worker_processes
 设成 cpu 核心数的两倍
 
-```
-gzip on;
-gzip_comp_level 4;
-gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
-```
