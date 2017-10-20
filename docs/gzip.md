@@ -1,4 +1,13 @@
-## gzip_types: 压缩类型
+# gzip
+
+默认值：gzip off
+
+# gzip_comp_level 
+
+默认值: gzip_comp_level 1
+
+
+# gzip_types: 压缩类型
 * text/plain
 * text/css
 * text/xml
@@ -10,6 +19,8 @@
 * application/x-javascript
 * application/octet-stream: 代表任意的二进制数据传输
 * image/svg+xml
+
+默认值：gzip_types text/html
 
 ```
 gzip on;
