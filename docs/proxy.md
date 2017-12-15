@@ -1,5 +1,6 @@
 
 - proxy_store
+- proxy_cache
 
 
 # proxy
