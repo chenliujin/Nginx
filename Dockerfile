@@ -5,7 +5,7 @@ MAINTAINER liujin.chen <liujin.chen@qq.com>
 # 1.修改时区
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 
-# 2. repo
+# 2. nginx.repo
 RUN cat << EOF > /etc/yum.repos.d/nginx.repo 
 [nginx]
 name=nginx repo
