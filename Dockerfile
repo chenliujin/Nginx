@@ -11,6 +11,7 @@ RUN echo '[nginx]' > /etc/yum.repos.d/nginx.repo && \
 
 # version: 1.12.2
 RUN yum install -y nginx 
+RUN systemctl enable nginx
 
 # healthz
 RUN rm -f /etc/nginx/conf.d/default.conf
