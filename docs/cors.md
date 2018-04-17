@@ -13,6 +13,11 @@
                         add_header 'Access-Control-Allow-Headers' 'X-PINGOTHER,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Token';
                         return 204;
                 }
+
+                add_header Access-Control-Allow-Origin * always;
+                add_header Access-Control-Allow-Credentials true;
+
+                ...
         }
 ```
 
