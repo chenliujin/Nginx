@@ -18,7 +18,7 @@ http {
                     '$status|$body_bytes_sent|"$http_referer"|'
                     '"$http_user_agent"|"$http_x_forwarded_for"|'
                     '$upstream_addr|$connection|$upstream_status|$bytes_sent|$upstream_response_time|$msec|$request_time';
-    access_log /var/log/nginx/access.log main;
+    access_log /var/log/nginx/www.example.com.access.log main;
     ...
 }
 ```
@@ -42,6 +42,11 @@ http {
 * $request_time: 请求处理时间，单位为秒，精度毫秒； 从读入客户端的第一个字节开始，直到把最后一个字符发送给客户端后进行日志写入为止。
 * $log_cookie_id
 * $log_zenid
+
+
+# 日志处理
+
+- site: /var/log/nginx/<site>.access.log
 
 ---
 
