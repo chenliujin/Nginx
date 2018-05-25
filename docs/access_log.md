@@ -15,9 +15,9 @@
 ```
 http {
     log_format main '$remote_addr|$remote_user|$time_local|"$request"|'
-                    '$status|$body_bytes_sent|"$http_referer"|'
-                    '"$http_user_agent"|"$http_x_forwarded_for"|$request_time|'
-                    '$upstream_addr|$upstream_status|$upstream_response_time|$connection|$bytes_sent';
+                    '$status|$request_time|$body_bytes_sent|"$http_referer"|'
+                    '"$http_user_agent"|"$http_x_forwarded_for"|'
+                    '$upstream_addr|$upstream_status|$upstream_response_time|$connection';
     access_log /var/log/nginx/www.example.com.access.log main;
     ...
 }
