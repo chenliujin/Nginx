@@ -16,8 +16,8 @@
 http {
     log_format main '$remote_addr|$remote_user|$time_local|"$request"|'
                     '$status|$body_bytes_sent|"$http_referer"|'
-                    '"$http_user_agent"|"$http_x_forwarded_for"|'
-                    '$upstream_addr|$connection|$upstream_status|$bytes_sent|$upstream_response_time|$msec|$request_time';
+                    '"$http_user_agent"|"$http_x_forwarded_for"|$request_time|'
+                    '$upstream_addr|$upstream_status|$upstream_response_time|$connection|$bytes_sent';
     access_log /var/log/nginx/www.example.com.access.log main;
     ...
 }
@@ -33,13 +33,13 @@ http {
 * $http_referer
 * $http_user_agent
 * $http_x_forwarded_for: 代理 IP
+* $request_time: 请求处理时间，单位为秒，精度毫秒； 从读入客户端的第一个字节开始，直到把最后一个字符发送给客户端后进行日志写入为止。
 * $upstream_addr: upstream 地址
 * $connection: 连接的序列号
 * $upstream_status: upstream 状态
-* $bytes_sent: 发送给客户端的总字节数
 * $upstream_response_time: upstream 响应时间
+* $bytes_sent: 发送给客户端的总字节数
 * $msec: 日志写入时间
-* $request_time: 请求处理时间，单位为秒，精度毫秒； 从读入客户端的第一个字节开始，直到把最后一个字符发送给客户端后进行日志写入为止。
 * $log_cookie_id
 * $log_zenid
 
