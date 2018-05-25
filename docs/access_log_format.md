@@ -1,10 +1,21 @@
-<h2>格式定义</h2>
-<p>使用 | 分隔日志内容，方便以后对日志进行分析和统计。</p>
+# default
+
 ```
-$ vim /etc/nginx/nginx.conf
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+```
+
+
+
+# 格式定义
+
+使用 | 分隔日志内容，方便以后对日志进行分析和统计。
+
+```
 http {
-    log_format main '$remote_addr|$http_x_forwarded_for|$upstream_addr|$connection|$upstream_status|$time_local|$request|$status|$body_bytes_sent|$bytes_sent|$http_referer|$http_user_agent|$upstream_response_time|$msec|$request_time';
-    access_log  /var/log/nginx/access.log  main;
+    log_format main '$remote_addr|"$http_x_forwarded_for"|$upstream_addr|$connection|$upstream_status|$time_local|"$request"|$status|$body_bytes_sent|$bytes_sent|"$http_referer"|"$http_user_agent"|$upstream_response_time|$msec|$request_time';
+    access_log /var/log/nginx/access.log main;
     ...
 }
 ```
