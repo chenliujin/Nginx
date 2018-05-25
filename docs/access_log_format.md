@@ -27,7 +27,7 @@ http {
 * $request_time: 请求处理时间，单位为秒，精度毫秒； 从读入客户端的第一个字节开始，直到把最后一个字符发送给客户端后进行日志写入为止。
 * $log_cookie_id
 * $log_zenid
-* $remote_user
+* $remote_user: 已经经过 Auth Basic Module 验证的用户名
 
 ## 参考文献
 * http://nginx.org/cn/docs/http/ngx_http_log_module.html
