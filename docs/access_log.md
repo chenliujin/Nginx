@@ -23,6 +23,26 @@ http {
 }
 ```
 
+# JSON
+
+```
+log_format logJson '{
+                         "@timestamp": "$time_local", '
+                         '"@fields": { '
+                         '"remote_addr": "$remote_addr", '
+                         '"remote_user": "$remote_user", '
+                         '"body_bytes_sent": "$body_bytes_sent", '
+                         '"request_time": "$request_time", '
+                         '"status": "$status", '
+                         '"request": "$request", '
+                         '"request_method": "$request_method", '
+                         '"http_referrer": "$http_referer", '
+                         '"body_bytes_sent":"$body_bytes_sent", '
+                         '"http_x_forwarded_for": "$http_x_forwarded_for", '
+                         '"http_user_agent": "$http_user_agent" }
+                         }';
+```
+
 ## 格式说明
 * $remote_addr: 客户端 IP
 * $remote_user: 已经经过 Auth Basic Module 验证的用户名
