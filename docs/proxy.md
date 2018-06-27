@@ -5,11 +5,14 @@
 
 # proxy
 ```
-    location / {
-            proxy_set_header Host $host;
-            proxy_set_header X-Forwarded-For $remote_addr;
-            proxy_pass http://127.0.0.1:30080;
-    }
+location / {
+  proxy_ignore_client_abort on; # 阿里云代理到腾讯云时会出现 http 499 
+  proxy_http_version 1.1; # Default 1.0
+  proxy_set_header Connection ""; # 防止 client 显式设置"close"
+  proxy_set_header Host $host;
+  proxy_set_header X-Forwarded-For $remote_addr;
+  proxy_pass http://127.0.0.1:30080;
+}
 ```
 
 # https
