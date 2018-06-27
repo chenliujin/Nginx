@@ -24,6 +24,7 @@
 
 ```
 gzip on;
+gzip_http_version 1.1;
 gzip_comp_level 4;
-gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+gzip_types text/plain text/html text/javascript text/css application/json application/x-javascript text/xml application/xml application/xml+rss;
 ```
